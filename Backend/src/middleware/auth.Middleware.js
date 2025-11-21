@@ -43,10 +43,10 @@ export const sendToken = (res, user) => {
 
   res.cookie("token", token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
+    secure: true, // required for cross-site cookies
+    sameSite: "none",
     maxAge: 3600000, // 1 hour
   });
-  false;
+
   return token;
 };
